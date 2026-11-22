@@ -1,0 +1,11 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": [
+    "docs/01-arquitectura.md",
+    "docs/02-estructura-carpetas.md",
+    "docs/03-modelo-datos.md",
+    "docs/04-contratos-api.md",
+    "docs/05-convenciones.md",
+    "docs/06-plan-migracion-sql.md"
+  ]
+}

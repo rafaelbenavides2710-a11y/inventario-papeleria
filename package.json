@@ -1,0 +1,27 @@
+{
+  "name": "papeleria-inventario",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Inventario de papelería - Fase 1 (MongoDB) con arquitectura MVC",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "seed": "node scripts/seed.js",
+    "test": "node --test tests/"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.10",
+    "ejs": "^3.1.10",
+    "express": "^4.22.3",
+    "express-ejs-layouts": "^2.5.1",
+    "mongoose": "^9.12.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

@@ -1,0 +1,49 @@
+<h1 class="h3 mb-3">Categorías</h1>
+
+<% if (typeof error !== 'undefined' && error) { %>
+  <div class="alert alert-danger"><%= error %></div>
+<% } %>
+
+<div class="row g-4">
+  <div class="col-lg-5">
+    <form action="/categorias" method="POST" class="card card-body shadow-sm">
+      <label for="nombre" class="form-label">Nueva categoría</label>
+      <div class="input-group">
+        <input type="text" class="form-control" id="nombre" name="nombre" required maxlength="100" placeholder="Ej. Cuadernos" value="<%= typeof nombre !== 'undefined' && nombre ? nombre : '' %>">
+        <button type="submit" class="btn btn-primary">Agregar</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="col-lg-7">
+    <% if (!categorias.length) { %>
+      <div class="alert alert-info">No hay categorías registradas.</div>
+    <% } else { %>
+      <div class="table-responsive">
+        <table class="table table-striped align-middle">
+          <thead class="table-dark">
+            <tr>
+              <th>Nombre</th>
+              <th>Creada</th>
+              <th class="text-end">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% categorias.forEach((categoria) => { %>
+              <tr>
+                <td><%= categoria.nombre %></td>
+                <td><%= new Date(categoria.createdAt).toLocaleDateString('es') %></td>
+                <td class="text-end">
+                  <a href="/categorias/<%= categoria._id %>/editar" class="btn btn-sm btn-outline-primary">Editar</a>
+                  <form action="/categorias/<%= categoria._id %>/eliminar" method="POST" class="d-inline" onsubmit="return confirm('¿Eliminar esta categoría?');">
+                    <button type="submit" class="btn btn-sm btn-outline-danger">Eliminar</button>
+                  </form>
+                </td>
+              </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      </div>
+    <% } %>
+  </div>
+</div>

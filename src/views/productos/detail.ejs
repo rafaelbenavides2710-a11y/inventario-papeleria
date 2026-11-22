@@ -1,0 +1,28 @@
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h1 class="h3 mb-0"><%= producto.nombre %></h1>
+  <div class="d-flex gap-2">
+    <a href="/productos/<%= producto._id %>/editar" class="btn btn-primary">Editar</a>
+    <a href="/productos" class="btn btn-secondary">Volver</a>
+  </div>
+</div>
+
+<div class="card shadow-sm">
+  <div class="card-body">
+    <dl class="row mb-0">
+      <dt class="col-sm-3">Categoría</dt>
+      <dd class="col-sm-9"><%= producto.categoriaId && producto.categoriaId.nombre ? producto.categoriaId.nombre : 'Sin categoría' %></dd>
+
+      <dt class="col-sm-3">Precio</dt>
+      <dd class="col-sm-9">$ <%= Number(producto.precio).toFixed(2) %></dd>
+
+      <dt class="col-sm-3">Stock</dt>
+      <dd class="col-sm-9"><%= producto.stock %></dd>
+
+      <dt class="col-sm-3">Creado</dt>
+      <dd class="col-sm-9"><%= new Date(producto.createdAt).toLocaleDateString('es') %></dd>
+
+      <dt class="col-sm-3">Actualizado</dt>
+      <dd class="col-sm-9 mb-0"><%= new Date(producto.updatedAt).toLocaleDateString('es') %></dd>
+    </dl>
+  </div>
+</div>

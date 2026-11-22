@@ -1,0 +1,5 @@
+<div class="text-center py-5">
+  <h1 class="display-1 fw-bold"><%= typeof status !== 'undefined' ? status : 500 %></h1>
+  <p class="lead"><%= typeof message !== 'undefined' ? message : 'Ocurrió un error inesperado.' %></p>
+  <a href="/productos" class="btn btn-primary">Ir a productos</a>
+</div>
